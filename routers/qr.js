@@ -23,8 +23,7 @@ module.exports = (app) => {
   app.get('/download', function (req, res, next) {
     let path = req.query.imagePath;
 
-    res.download(path, (err) => {
-      if (err) console.log(err);
-    });
+    const file = fs.createReadStream(path);
+    file.pipe(res);
   });
 };
