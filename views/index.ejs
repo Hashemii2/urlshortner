@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      h1 {
+        text-align: right;
+        font-size: medium;
+      }
+
+      body {
+        background-color: rgb(110, 135, 181);
+      }
+
+      div {
+        padding-top: 50px;
+        padding-right: 30px;
+        padding-bottom: 20px;
+        padding-left: 50px;
+      }
+      .btn-success {
+        background-color: rgb(43, 70, 61);
+      }
+    </style>
+    <title>Shorten URL</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        برای کوتاه کردن لینک، آدرستو در باکس زیر وارد و روی دکمه سبز کلیک کن.
+      </h1>
+      <form action="/shortUrls" method="POST" class="my-4 form-inline">
+        <label for="fullUrl" class="sr-only">لینک</label>
+        <input
+          required
+          placeholder="لینک"
+          type="url"
+          name="fullUrl"
+          id="fullUrl"
+          class="form-control col mr-2"
+        />
+        <button class="btn btn-success" type="submit">کوتاه کن</button>
+      </form>
+    </div>
+    <div class="container">
+      <h1>برای دریافت qr کد آدرستو وارد کن و روی دکمه سبز کلیک کن</h1>
+      <form action="/qrcode" method="POST" class="my-4 form-inline">
+        <label for="fullUrl" class="sr-only">لینک</label>
+        <input
+          required
+          placeholder="لینک"
+          type="url"
+          name="fullUrl"
+          id="fullUrl"
+          class="form-control col mr-2"
+        />
+        <button class="btn btn-success" type="submit">کد qr برام بساز</button>
+      </form>
+    </div>
+  </body>
+</html>

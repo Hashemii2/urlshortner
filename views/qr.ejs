@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: rgb(110, 135, 181);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="m-3">
+      <div class="card card-default">
+        <div class="card-body">
+          <h4 class="text-center">اسکن کن</h4>
+          <div class="text-center my-3">
+            <img src="<%= qrCode %>" />
+            <br />
+            <a href="/download?imagePath=<%= imagePath %>"> دانلود</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
