@@ -25,8 +25,6 @@ module.exports = (app) => {
 
     res.download(path, (err) => {
       if (err) console.log(err);
-
-      fs.unlink(path, () => {});
     });
   });
 };
