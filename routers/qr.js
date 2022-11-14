@@ -13,7 +13,11 @@ module.exports = (app) => {
     QRCode.toDataURL(url, function (err, qrCode) {
       if (err) res.sendStatus(404);
 
-      let imagePath = path.join('usr / src', './ app', Date.now() + '.png');
+      let imagePath = path.resolve(
+        'usr/src',
+        '/app/store',
+        Date.now() + '.png'
+      );
       QRCode.toFile(imagePath, url);
 
       res.render('qr', { qrCode, imagePath });
