@@ -13,7 +13,7 @@ module.exports = (app) => {
     QRCode.toDataURL(url, function (err, qrCode) {
       if (err) res.sendStatus(404);
 
-      let imagePath = path.join('store', Date.now() + '.png');
+      let imagePath = path.join(__dirname, '../store', Date.now() + '.png');
       QRCode.toFile(imagePath, url);
 
       res.render('qr', { qrCode, imagePath });
@@ -23,7 +23,10 @@ module.exports = (app) => {
   app.get('/download', function (req, res, next) {
     let path = req.query.imagePath;
 
-    const file = fs.createReadStream(path);
-    file.pipe(res);
+    res.download(path, (err) => {
+      if (err) console.log(err);
+
+      fs.unlinkSync(path);
+    });
   });
 };
