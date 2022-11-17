@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  web:
+   build:
+     context: ./
+   volumes:
+      - ./store:/usr/src/app/store  
+   ports:
+      - "5000:5000"

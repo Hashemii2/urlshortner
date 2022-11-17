@@ -1,4 +1,7 @@
 const Urls = require('../models/url');
+const shortId = require('shortid');
+const { baseUrl } = require('../baseurl');
+const baseurl = baseUrl.url;
 
 module.exports = (app) => {
   app.get('/', async (req, res) => {
@@ -11,15 +14,17 @@ module.exports = (app) => {
     let url = await Urls.findOne({ fullurl });
 
     if (!url) {
-      url = await Urls.create({ fullurl });
+      const id = shortId.generate();
+
+      url = await Urls.create({ fullurl, shorturl: baseurl + id });
     }
 
-    let s = res.cookie('url', url.shorturl);
     res.render('short', { url });
   });
 
   app.get('/:shortUrl', async (req, res) => {
-    const shorturl = req.params.shortUrl;
+    let shorturl = baseurl + req.params.shortUrl;
+
     try {
       const found = await Urls.findOne({ shorturl });
 

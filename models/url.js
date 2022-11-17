@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const shortId = require('shortid');
 
 const urlsSchema = new mongoose.Schema({
   fullurl: {
@@ -9,10 +8,6 @@ const urlsSchema = new mongoose.Schema({
   shorturl: {
     type: String,
     required: true,
-    default: shortId.generate,
-  },
-  qrcode: {
-    type: String,
   },
   clicks: {
     type: Number,
