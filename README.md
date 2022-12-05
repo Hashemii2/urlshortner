@@ -1,3 +1,3 @@
 # urlshortner
 
-visit this site: https://urlshorten-34gx.onrender.com
+View the application at this address: https://urlshorten-34gx.onrender.com
